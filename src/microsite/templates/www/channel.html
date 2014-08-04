@@ -1,0 +1,32 @@
+{% extends "www/base.html" %}
+
+{% block body %}
+<div class="container">
+<div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ channel.name }}</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                    <tbody>
+                        {% for article in channel.articles %}
+                        <a href="{{ article.url }}" target="_blank">
+                        <tr>
+                            <td><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></td>
+                            <td>{{ article.date_created }}</td>
+                        </tr>
+                        </a>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</div>
+<div class="row">
+	{{ pagination.links|safe }}
+</div>
+</div>
+{% endblock %}
