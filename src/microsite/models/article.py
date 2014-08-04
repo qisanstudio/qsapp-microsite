@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 from flask import url_for
 from jinja2 import Markup
 from sqlalchemy import sql
-from microsite.core.engines import db
+from studio.core.engines import db
 from sqlalchemy.ext.hybrid import hybrid_property
 
 

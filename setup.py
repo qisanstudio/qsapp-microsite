@@ -87,7 +87,7 @@ if os.path.isfile('yeoman/Gruntfile.js'):
                               'build_ext': build_ext}}
 
 setup_params = dict(
-        name="microsite",
+        name="qsapp-microsite",
         version="0.1",
         url="http://microsite.github.com",
         author="qisanstadio",

@@ -4,15 +4,16 @@ from __future__ import unicode_literals
 
 import os
 
-SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://iefschina:iiii@localhost/iefschina'
+DEBUG = True
+SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://xxxxiefschina:iiii@localhost/iefschina'
 
-UWSGI_VHOST = true
+UWSGI_VHOST = True
 UWSGI_SOCKET = ['/tmp/microsite.sock', '0.0.0.0:17001']
 UWSGI_MODULE  = 'microsite:app'
 UWSGI_VENV  = os.environ['VIRTUAL_ENV']
 UWSGI_CHDIR  = '/home/qisan/studio/microsite/src/microsite'
-UWSGI_MASTER  = true
-UWSGI_ENABLE-THREADS  = true
-UWSGI_CHMOD-SOCKET  = '666'
-UWSGI_PY-AUTO-RELOAD  = true
+UWSGI_MASTER  = True
+UWSGI_ENABLE_THREADS  = True
+UWSGI_CHMOD_SOCKET  = 666
+UWSGI_PY_AUTO_RELOAD  = True
 UWSGI_WORKDERS  = 2

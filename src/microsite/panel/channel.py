@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from flask.ext.admin.contrib.sqla import ModelView
-from microsite.core.engines import db
+from studio.core.engines import db
 from microsite.models import ChannelModel
 
 
