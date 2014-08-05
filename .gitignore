@@ -20,3 +20,4 @@ test/bower_components
 src/microsite/static/
 static-src/bower_components
 static-src/styles/*.css
+*.log
