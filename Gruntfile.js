@@ -13,6 +13,20 @@ module.exports = function (grunt) {
 
         config: config,
 
+        clean: {
+            dist: {
+                files: [{
+                    dot: true,
+                    src: [
+                        '.tmp',
+                        '<%= config.dist %>/*',
+                        '!<%= config.dist %>/.git*'
+                    ]
+                }]
+            },
+            server: '.tmp'
+        },
+
         watch: {
             bower: {
                 files: ['bower.json'],
@@ -92,21 +106,6 @@ module.exports = function (grunt) {
                     livereload: false
                 }
             }
-        },
-
-        // Empties folders to start fresh
-        clean: {
-            dist: {
-                files: [{
-                    dot: true,
-                    src: [
-                        '.tmp',
-                        '<%= config.dist %>/*',
-                        '!<%= config.dist %>/.git*'
-                    ]
-                }]
-            },
-            server: '.tmp'
         },
 
         // Make sure code styles are up to par and there are no obvious mistakes
