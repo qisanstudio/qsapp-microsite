@@ -15,14 +15,7 @@ module.exports = function (grunt) {
 
         clean: {
             dist: {
-                files: [{
-                    dot: true,
-                    src: [
-                        '.tmp',
-                        '<%= config.dist %>/*',
-                        '!<%= config.dist %>/.git*'
-                    ]
-                }]
+                src: ['.tmp', '<%= config.dist %>']
             },
             server: '.tmp'
         },
@@ -88,8 +81,9 @@ module.exports = function (grunt) {
             },
             test: {
                 options: {
-                    open: false,
+                    open: true,
                     port: 9001,
+                    hostname: 'localhost',
                     middleware: function(connect) {
                         return [
                             connect.static('.tmp'),
@@ -185,24 +179,23 @@ module.exports = function (grunt) {
             }
         },
 
-	// Renames files for browser caching purposes
-	revhashmap: {                                                       
-		options: {mapping:true},
-		dist: {
-			files: [{
-			cwd: '<%= config.dist %>',
-			dest: '<%= config.dist %>',
-			src: [
-				'scripts/{,*/}*.js',
-				'images/{,*/}*.{png,svg,jpg,jpeg,gif,webp}',
-				'fonts/{,*/}*.{eot,svg,ttf,woff}',
-				'styles/{,*/}*.css',
-				'styles/fonts/*'
-				]
-			}]
-		}
-	},
-
+        // Renames files for browser caching purposes
+        revhashmap: {                                                       
+            options: {mapping:true},
+            dist: {
+                files: [{
+                cwd: '<%= config.dist %>',
+                dest: '<%= config.dist %>',
+                src: [
+                    'scripts/{,*/}*.js',
+                    'images/{,*/}*.{png,svg,jpg,jpeg,gif,webp}',
+                    'fonts/{,*/}*.{eot,svg,ttf,woff}',
+                    'styles/{,*/}*.css',
+                    'styles/fonts/*'
+                    ]
+                }]
+            }
+        },
 
         // Reads HTML for usemin blocks to enable smart builds that automatically
         // concat, minify and revision files. Creates configurations in memory so
@@ -270,28 +263,28 @@ module.exports = function (grunt) {
         // By default, your `index.html`'s <!-- Usemin block --> will take care of
         // minification. These next options are pre-configured if you do not wish
         // to use the Usemin blocks.
-        // cssmin: {
-        //     dist: {
-        //         files: {
-        //             '<%= config.dist %>/styles/main.css': [
-        //                 '.tmp/styles/{,*/}*.css',
-        //                 '<%= config.app %>/styles/{,*/}*.css'
-        //             ]
-        //         }
-        //     }
-        // },
-        // uglify: {
-        //     dist: {
-        //         files: {
-        //             '<%= config.dist %>/scripts/scripts.js': [
-        //                 '<%= config.dist %>/scripts/scripts.js'
-        //             ]
-        //         }
-        //     }
-        // },
-        // concat: {
-        //     dist: {}
-        // },
+        cssmin: {
+            dist: {
+                files: {
+                    '<%= config.dist %>/styles/main.css': [
+                        '.tmp/styles/{,*/}*.css',
+                        '<%= config.app %>/styles/{,*/}*.css'
+                    ]
+                }
+            }
+        },
+        uglify: {
+            dist: {
+                files: {
+                    '<%= config.dist %>/scripts/scripts.js': [
+                        '<%= config.dist %>/scripts/scripts.js'
+                    ]
+                }
+            }
+        },
+        concat: {
+            dist: {}
+        },
 
         // Copies remaining files to places other tasks can use
         copy: {
@@ -391,7 +384,7 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'connect:test',
-            'mocha'
+            // 'mocha'
         ]);
     });
 
