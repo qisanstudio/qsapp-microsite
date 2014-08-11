@@ -19,7 +19,7 @@ class ArticleModel(db.Model):
     __tablename__ = 'article'
 
     id = db.Column(db.Integer(), nullable=False, primary_key=True)
-    cid = db.Column('channel_id', db.Integer(), nullable=True, index=True)
+    cid = db.Column('channel_id', db.Integer(), nullable=False, index=True)
     is_sticky = db.Column(db.Boolean(), nullable=False, server_default=sql.false())
     title = db.Column(db.Unicode(64), nullable=False, unique=True, index=True)
 
@@ -35,7 +35,7 @@ class ArticleModel(db.Model):
             backref=db.backref('article', lazy='joined', innerjoin=True),
             primaryjoin='ArticleModel.id==ArticleContentModel.id',
             foreign_keys='[ArticleContentModel.id]',
-            uselist=False, passive_deletes='all')
+            uselist=False, cascade='all, delete-orphan')
 
     @property
     def url(self):
