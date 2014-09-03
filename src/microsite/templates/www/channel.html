@@ -15,7 +15,7 @@
                         <a href="{{ article.url }}" target="_blank">
                         <tr>
                             <td><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></td>
-                            <td>{{ article.date_created }}</td>
+                            <td>{{ article.date_published|strfdate }}</td>
                         </tr>
                         </a>
                         {% endfor %}

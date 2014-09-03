@@ -9,7 +9,7 @@
         <li data-target="#carousel-example-captions" data-slide-to="1" class=""></li>
         <li data-target="#carousel-example-captions" data-slide-to="2" class=""></li>
       </ol>
-      <div class="carousel-inner">
+      <div class="carousel-inner" style="height:200px;">
         <div class="item active">
             <img src="http://www.mylxs.net/uploadfile/20134640680521.jpg">
           <div class="carousel-caption">
@@ -54,10 +54,10 @@
                 <div class="panel-body">
                     <table class="table">
                     <tbody>
-                        {% for article in channel.articles %}
+                        {% for article in channel.articles[:5] %}
                         <tr>
                             <td><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></td>
-                            <td>{{ article.date_published }}</td>
+                            <td>{{ article.date_published|strfdate }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="">
-    <h3>{{ article.title }}</h3>{{ article.date_created }}
+    <h3>{{ article.title }}</h3>{{ article.date_published|strfdate }}
     <div class="content">
         {{ article.html }}
     </div>
