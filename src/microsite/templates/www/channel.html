@@ -11,7 +11,7 @@
                 <div class="panel-body">
                     <table class="table">
                     <tbody>
-                        {% for article in channel.articles %}
+                        {% for article in channel.articles[(pager.page-1)*pager.per_page:pager.page*pager.per_page] %}
                         <a href="{{ article.url }}" target="_blank">
                         <tr>
                             <td><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></td>
@@ -26,7 +26,7 @@
         </div>
 </div>
 <div class="row">
-	{{ pagination.links|safe }}
+	{{ pager.links|safe }}
 </div>
 </div>
 {% endblock %}

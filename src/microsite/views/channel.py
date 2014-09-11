@@ -10,11 +10,13 @@ from microsite.blueprints import blueprint_www
 from microsite.models import ChannelModel
 
 
+article_per_page = 10
+
 class ChannelView(views.MethodView):
     '''
         首页
     '''
-    
+
     @property
     def page(self):
         try:
@@ -30,12 +32,13 @@ class ChannelView(views.MethodView):
             channels = filter(lambda x: re.match(r'[a-zA-Z\b]+', x.name), channels)
         else:
             channels = filter(lambda x: not re.match(r'[a-zA-Z\b]+', x.name), channels)
-        
-        pagination = Pagination(bs_version=3, page=self.page, total=channel.articles.count())
-        return render_template('www/channel.html', 
-                                channels=channels, 
+
+        pager = Pagination(bs_version=3, page=self.page, total=channel.articles.count())
+
+        return render_template('www/channel.html',
+                                channels=channels,
                                 channel=channel,
-                                pagination=pagination)
+                                pager=pager)
 
 
 blueprint_www.add_url_rule('/channel/<int:cid>/', view_func=ChannelView.as_view(b'channel'),
