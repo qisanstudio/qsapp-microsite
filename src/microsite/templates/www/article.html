@@ -1,10 +1,17 @@
 {% extends "www/base.html" %}
 
 {% block body %}
-<div class="">
-    <h3>{{ article.title }}</h3>{{ article.date_published|strfdate }}
-    <div class="content">
-        {{ article.html }}
+<div class="wrap">
+    <div class="container">
+    	<div class="row">
+            <div class="main col-sm-8">
+                <h3 class="text-center">{{ article.title }}</h3>{{ article.date_published|strfdate }}
+    			<div class="content">{{ article.html }}</div>
+            </div>
+            <div class="side col-sm-4">
+                ssss
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

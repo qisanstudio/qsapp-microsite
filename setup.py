@@ -30,7 +30,7 @@ def reqs(filename):
 
 setup_ext = {}
 
-if os.path.isfile('Gruntfile.js'):
+if os.path.isfile('gulpfile.js'):
     # 如果 Gruntfile.js 存在, 就压缩前端代码
     def grunt_build(done=[]):
         if not done:
@@ -40,7 +40,7 @@ if os.path.isfile('Gruntfile.js'):
                 sys.exit(1)
             if os.system('bower install'):
                 sys.exit(1)
-            if os.system('grunt build'):
+            if os.system('gulp build'):
                 sys.exit(1)
             done.append(1)
 

@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{% block title %}{% endblock %}iefschina</title>
+    <title>{% block title %}{% endblock %}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -46,45 +46,7 @@
         </div><!-- /.navbar-collapse -->
       </div>
 </nav>
-<div class="container">
-    <div class="row">
-    <div class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-example-captions" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-captions" data-slide-to="1" class=""></li>
-        <li data-target="#carousel-example-captions" data-slide-to="2" class=""></li>
-      </ol>
-      <div class="carousel-inner" style="height:200px;">
-        <div class="item active">
-            <img src="http://www.mylxs.net/uploadfile/20134640680521.jpg">
-          <div class="carousel-caption">
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </div>
-        </div>
-        <div class="item">
-            <img src="http://www.xinzhou.org/uploadfile/news/uploadfile/201309/20130925113822456.jpg">
-          <div class="carousel-caption">
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-        </div>
-        <div class="item">
-            <img src="http://images4.c-ctrip.com/target/hotel/20000/19436/7631233bfaea43ca9b714557ae79f327.jpg">
-          <div class="carousel-caption">
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-          </div>
-        </div>
-      </div>
-      <a class="left carousel-control" href="#carousel-example-captions" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      </a>
-      <a class="right carousel-control" href="#carousel-example-captions" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </a>
-    </div>
-</div>
+<div class="container-fluid">
     {% block body %}
     {% endblock %}
 </div>
