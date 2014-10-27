@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 DEBUG = True
 SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://iefschina:iiii@localhost/iefschina'
 
-SERVER_NAME = 'dev.microsite.com:15000'
+SERVER_NAME = 'www.iefschina.com:18000'
 
 UWSGI_SOCKET = '0.0.0.0:17001'
 UWSGI_MODULE  = 'microsite:app'
